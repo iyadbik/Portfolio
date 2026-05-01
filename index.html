@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بورتفوليو خديجة أورغان</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Amiri', serif;
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: #111;
+      border-bottom: 1px solid #333;
+    }
+    header h1 {
+      color: gold;
+      font-size: 1.8rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: gold;
+    }
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    /* Home Section with photo behind text */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: #0d0d0d;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding: 2rem;
+      background: rgba(255, 215, 0, 0.1);
+      border: 2px solid gold;
+      border-radius: 15px;
+      box-shadow: 0 0 30px gold;
+    }
+    .hero-content h2 {
+      font-size: 2.5rem;
+      color: gold;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      line-height: 2rem;
+    }
+    .photo-behind {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.25; /* faint behind text */
+    }
+    .photo-behind img {
+      width: 300px;   /* small size */
+      border-radius: 10px;
+    }
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 1rem;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>خديجة أورغان</h1>
+    <nav>
+      <a href="#home">الرئيسية</a>
+      <a href="#about">عنّي</a>
+      <a href="#work">أعمالي</a>
+      <a href="#skills">مهاراتي</a>
+      <a href="#contact">تواصل معي</a>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <!-- Place your photo here -->
+      <div class="photo-behind">
+        <img src="Image.png" alt="خديجة أورغان">
+      </div>
+      <h2>طالبة شغوفة بالعلم والمعرفة</h2>
+      <p>أحب الرسم والكتب، وأسعى لاكتشاف أسرار الكون وخوض غمار العلوم.  
+      أؤمن أن الإبداع هو طريق لاكتشاف الذات والعالم.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>عنّي</h2>
+    <p>أنا خديجة أورغان، طالبة شغوفة بالعلم والفن. أستمتع بالبحث والاكتشاف، وأعبّر عن أفكاري من خلال الرسم والكتابة.  
+    أحب أن أشارك معرفتي مع الآخرين وأن أكون جزءًا من مجتمع يقدّر الثقافة والعلوم.</p>
+  </section>
+
+  <!-- Work Section -->
+  <section id="work">
+    <h2>أعمالي</h2>
+    <p>من أبرز أعمالي:  
+    - مشروع بحثي صغير حول قوانين الفيزياء.  
+    - مجموعة رسومات فنية مستوحاة من الطبيعة والعلوم.  
+    - ملخصات كتب علمية وفكرية قمت بكتابتها ومشاركتها مع زملائي.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>مهاراتي</h2>
+    <p>• العلوم: فهم أساسي في الفيزياء والكيمياء.  
+    • الرسم: القدرة على التعبير الفني باستخدام الألوان والأشكال.  
+    • الكتب: كتابة ملخصات ومراجعات لأعمال فكرية وعلمية.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>تواصل معي</h2>
+    <p>يمكنك مراسلتي عبر البريد الإلكتروني: khadija@example.com  
+    أو متابعتي على حساباتي في وسائل التواصل الاجتماعي.</p>
+  </section>
+
+  <footer>
+    © 2026 خديجة أورغان | جميع الحقوق محفوظة
+  </footer>
+</body>
+</html>
