@@ -1,149 +1,878 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>بورتفوليو خديجة أورغان</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
-    body {
-      margin: 0;
-      font-family: 'Amiri', serif;
-      background-color: #0d0d0d;
-      color: #fff;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>بورتفوليو طلاب الثانية إعدادي</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --accent:#ff84b7;
+    --accent2:#ff3d7a;
+    --bg:#09070d;
+    --panel:#130a17;
+    --text:#ffffff;
+    --text2:rgba(255,255,255,0.65);
+    --card:rgba(255,255,255,0.05);
+    --border:rgba(255,255,255,0.08);
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:'Cairo',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* APP */
+
+.app{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    background:var(--bg);
+    transition:0.5s;
+}
+
+/* MAIN */
+
+.main{
+    flex:1;
+    display:grid;
+    grid-template-columns:40% 60%;
+    overflow:hidden;
+}
+
+/* LEFT */
+
+.left{
+    position:relative;
+    background:var(--panel);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    transition:0.5s;
+}
+
+.circle1,
+.circle2,
+.square1,
+.square2{
+    position:absolute;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.circle1{
+    width:340px;
+    height:340px;
+    border-radius:50%;
+    top:-120px;
+    right:-120px;
+}
+
+.circle2{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    bottom:15%;
+    right:10%;
+    animation:float 4s ease-in-out infinite;
+}
+
+.square1{
+    width:200px;
+    height:200px;
+    transform:rotate(45deg);
+    bottom:-70px;
+    left:-70px;
+}
+
+.square2{
+    width:70px;
+    height:70px;
+    transform:rotate(25deg);
+    top:18%;
+    left:15%;
+    animation:float 5s ease-in-out infinite reverse;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px);
     }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 3rem;
-      background-color: #111;
-      border-bottom: 1px solid #333;
+    50%{
+        transform:translateY(-15px);
     }
-    header h1 {
-      color: gold;
-      font-size: 1.8rem;
+}
+
+/* AVATAR */
+
+.avatar-wrap{
+    position:relative;
+    z-index:5;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+}
+
+.avatar-outer{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    border:2px solid var(--border);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:spin 15s linear infinite;
+    box-shadow:0 0 70px rgba(255,255,255,0.05),
+    0 0 50px var(--accent2);
+}
+
+.avatar-inner{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:var(--card);
+    border:1px solid var(--border);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    backdrop-filter:blur(12px);
+    animation:spin2 15s linear infinite;
+}
+
+.avatar-letter{
+    font-size:90px;
+    font-weight:900;
+    color:var(--accent);
+    font-family:'Amiri',serif;
+    text-shadow:0 0 25px var(--accent2);
+    animation:spin2 15s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
     }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      transition: color 0.3s;
+    to{
+        transform:rotate(360deg);
     }
-    nav a:hover {
-      color: gold;
+}
+
+@keyframes spin2{
+    from{
+        transform:rotate(0deg);
     }
-    section {
-      padding: 4rem 2rem;
-      text-align: center;
+    to{
+        transform:rotate(-360deg);
     }
-    /* Home Section with photo behind text */
-    .hero {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background-color: #0d0d0d;
+}
+
+.dots{
+    display:flex;
+    gap:8px;
+}
+
+.dots span{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--accent);
+    animation:pulse 1.5s infinite;
+}
+
+.dots span:nth-child(2){
+    animation-delay:0.3s;
+}
+
+.dots span:nth-child(3){
+    animation-delay:0.6s;
+}
+
+@keyframes pulse{
+    0%,100%{
+        opacity:0.4;
+        transform:scale(1);
     }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-      padding: 2rem;
-      background: rgba(255, 215, 0, 0.1);
-      border: 2px solid gold;
-      border-radius: 15px;
-      box-shadow: 0 0 30px gold;
+    50%{
+        opacity:1;
+        transform:scale(1.5);
     }
-    .hero-content h2 {
-      font-size: 2.5rem;
-      color: gold;
-      margin-bottom: 1rem;
+}
+
+/* RIGHT */
+
+.right{
+    position:relative;
+    overflow-y:auto;
+    padding:55px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.right::-webkit-scrollbar{
+    width:0;
+}
+
+.right::before{
+    content:'';
+    position:absolute;
+    right:0;
+    top:0;
+    width:3px;
+    height:100%;
+    background:linear-gradient(to bottom,transparent,var(--accent2),transparent);
+}
+
+/* CONTENT */
+
+.tag{
+    width:fit-content;
+    padding:7px 18px;
+    border-radius:100px;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--accent);
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.name{
+    font-size:68px;
+    line-height:1.1;
+    font-family:'Amiri',serif;
+    margin-bottom:10px;
+}
+
+.job{
+    font-size:22px;
+    color:var(--accent);
+    margin-bottom:12px;
+}
+
+.quote{
+    color:var(--text2);
+    font-size:14px;
+    margin-bottom:28px;
+    font-style:italic;
+}
+
+.line{
+    width:100%;
+    height:1px;
+    background:linear-gradient(to left,var(--border),transparent);
+    margin-bottom:28px;
+}
+
+.desc{
+    font-size:17px;
+    line-height:2;
+    color:var(--text2);
+    max-width:700px;
+    margin-bottom:35px;
+}
+
+.skills-title{
+    font-size:12px;
+    letter-spacing:3px;
+    color:var(--accent);
+    margin-bottom:15px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skill{
+    padding:8px 15px;
+    border-radius:8px;
+    background:var(--card);
+    border:1px solid var(--border);
+    font-size:13px;
+    transition:0.3s;
+}
+
+.skill:hover{
+    transform:translateY(-3px);
+    background:var(--accent2);
+}
+
+/* TABS */
+
+.tabs{
+    height:85px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    overflow-x:auto;
+    padding:0 20px;
+    background:rgba(0,0,0,0.45);
+    backdrop-filter:blur(20px);
+    border-top:1px solid var(--border);
+}
+
+.tabs::-webkit-scrollbar{
+    height:3px;
+}
+
+.tabs::-webkit-scrollbar-thumb{
+    background:var(--accent2);
+}
+
+.tab{
+    flex-shrink:0;
+    padding:12px 22px;
+    border-radius:10px;
+    border:1px solid transparent;
+    background:transparent;
+    color:rgba(255,255,255,0.45);
+    cursor:pointer;
+    transition:0.3s;
+    font-size:14px;
+}
+
+.tab:hover{
+    background:var(--card);
+    border-color:var(--border);
+    color:white;
+}
+
+.tab.active{
+    background:var(--card);
+    border-color:var(--accent);
+    color:var(--accent);
+    box-shadow:0 0 20px rgba(255,255,255,0.05);
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+    .main{
+        grid-template-columns:1fr;
+        grid-template-rows:33% 67%;
     }
-    .hero-content p {
-      font-size: 1.3rem;
-      line-height: 2rem;
+
+    .right{
+        padding:30px;
     }
-    .photo-behind {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0.25; /* faint behind text */
+
+    .right::before{
+        display:none;
     }
-    .photo-behind img {
-      width: 300px;   /* small size */
-      border-radius: 10px;
+
+    .name{
+        font-size:42px;
     }
-    footer {
-      background-color: #111;
-      text-align: center;
-      padding: 1rem;
-      color: #aaa;
-      font-size: 0.9rem;
+
+    .job{
+        font-size:18px;
     }
-  </style>
+
+    .desc{
+        font-size:15px;
+    }
+
+    .avatar-outer{
+        width:150px;
+        height:150px;
+    }
+
+    .avatar-inner{
+        width:120px;
+        height:120px;
+    }
+
+    .avatar-letter{
+        font-size:55px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .main{
+        grid-template-rows:28% 72%;
+    }
+
+    .right{
+        padding:22px;
+    }
+
+    .name{
+        font-size:34px;
+    }
+
+    .job{
+        font-size:16px;
+    }
+
+    .desc{
+        font-size:14px;
+        line-height:1.9;
+    }
+
+    .quote{
+        font-size:12px;
+    }
+
+    .tabs{
+        height:78px;
+        padding:0 12px;
+    }
+
+    .tab{
+        padding:10px 16px;
+        font-size:13px;
+    }
+
+    .avatar-outer{
+        width:120px;
+        height:120px;
+    }
+
+    .avatar-inner{
+        width:95px;
+        height:95px;
+    }
+
+    .avatar-letter{
+        font-size:42px;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
-  <header>
-    <h1>خديجة أورغان</h1>
-    <nav>
-      <a href="#home">الرئيسية</a>
-      <a href="#about">عنّي</a>
-      <a href="#work">أعمالي</a>
-      <a href="#skills">مهاراتي</a>
-      <a href="#contact">تواصل معي</a>
-    </nav>
-  </header>
 
-  <!-- Home Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <!-- Place your photo here -->
-      <div class="photo-behind">
-        <img src="Image.png" alt="خديجة أورغان">
-      </div>
-      <h2>طالبة شغوفة بالعلم والمعرفة</h2>
-      <p>أحب الرسم والكتب، وأسعى لاكتشاف أسرار الكون وخوض غمار العلوم.  
-      أؤمن أن الإبداع هو طريق لاكتشاف الذات والعالم.</p>
-    </div>
-  </section>
+<div class="app" id="app">
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>عنّي</h2>
-    <p>أنا خديجة أورغان، طالبة شغوفة بالعلم والفن. أستمتع بالبحث والاكتشاف، وأعبّر عن أفكاري من خلال الرسم والكتابة.  
-    أحب أن أشارك معرفتي مع الآخرين وأن أكون جزءًا من مجتمع يقدّر الثقافة والعلوم.</p>
-  </section>
+<div class="main">
 
-  <!-- Work Section -->
-  <section id="work">
-    <h2>أعمالي</h2>
-    <p>من أبرز أعمالي:  
-    - مشروع بحثي صغير حول قوانين الفيزياء.  
-    - مجموعة رسومات فنية مستوحاة من الطبيعة والعلوم.  
-    - ملخصات كتب علمية وفكرية قمت بكتابتها ومشاركتها مع زملائي.</p>
-  </section>
+<div class="left" id="left">
 
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2>مهاراتي</h2>
-    <p>• العلوم: فهم أساسي في الفيزياء والكيمياء.  
-    • الرسم: القدرة على التعبير الفني باستخدام الألوان والأشكال.  
-    • الكتب: كتابة ملخصات ومراجعات لأعمال فكرية وعلمية.</p>
-  </section>
+<div class="circle1"></div>
+<div class="circle2"></div>
+<div class="square1"></div>
+<div class="square2"></div>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>تواصل معي</h2>
-    <p>يمكنك مراسلتي عبر البريد الإلكتروني: khadija@example.com  
-    أو متابعتي على حساباتي في وسائل التواصل الاجتماعي.</p>
-  </section>
+<div class="avatar-wrap">
 
-  <footer>
-    © 2026 خديجة أورغان | جميع الحقوق محفوظة
-  </footer>
+<div class="avatar-outer">
+<div class="avatar-inner">
+<div class="avatar-letter" id="letter">خ</div>
+</div>
+</div>
+
+<div class="dots">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<div class="tag" id="tag"></div>
+
+<div class="name" id="name"></div>
+
+<div class="job" id="job"></div>
+
+<div class="quote" id="quote"></div>
+
+<div class="line"></div>
+
+<div class="desc" id="desc"></div>
+
+<div class="skills-title">
+المهارات والاهتمامات
+</div>
+
+<div class="skills" id="skills"></div>
+
+</div>
+
+</div>
+
+<div class="tabs" id="tabs"></div>
+
+</div>
+
+<script>
+
+const people = [
+
+{
+name:"خديجة أورغان",
+letter:"خ",
+job:"رسامة ومصممة 🎨",
+quote:"— تحول الخيال إلى فن جميل —",
+tag:"فن وإبداع ✦",
+desc:"خديجة تحب الرسم والتصميم والألوان وتتميز بإبداعها وأفكارها الفنية الجميلة.",
+skills:["الرسم","التصميم","الإبداع","الألوان"],
+accent:"#ff84b7",
+accent2:"#ff3d7a",
+bg:"#09070d",
+panel:"#130a17"
+},
+
+{
+name:"ياسر بخشيش",
+letter:"ي",
+job:"المبرمج الوحيد في الفريق 💻",
+quote:"— أصنع الأفكار بالكود —",
+tag:"برمجة وتطوير ✦",
+desc:"ياسر هو المبرمج الوحيد في الفريق، يحب تطوير المواقع وصناعة التصاميم الحديثة وتعلم البرمجة.",
+skills:["HTML","CSS","JavaScript","تطوير المواقع"],
+accent:"#57b7ff",
+accent2:"#007bff",
+bg:"#06101b",
+panel:"#081829"
+},
+
+{
+name:"ادم استيف",
+letter:"أ",
+job:"محب التكنولوجيا ⚡",
+quote:"— التقنية عالم ممتع —",
+tag:"تقنية وابتكار ✦",
+desc:"آدم يحب التكنولوجيا والألعاب واكتشاف أشياء جديدة في عالم الحاسوب.",
+skills:["التكنولوجيا","الألعاب","الحاسوب","الإبداع"],
+accent:"#51ffae",
+accent2:"#00d46f",
+bg:"#05110b",
+panel:"#07190f"
+},
+
+{
+name:"زينب هاهو",
+letter:"ز",
+job:"طالبة مبدعة 🌸",
+quote:"— أحب الرسم والخيال —",
+tag:"فن وإبداع ✦",
+desc:"زينب تحب الرسم والألوان والأعمال الفنية وتتميز بالهدوء والإبداع.",
+skills:["الرسم","الألوان","الإبداع","الفن"],
+accent:"#d9a6ff",
+accent2:"#954dff",
+bg:"#100717",
+panel:"#180a22"
+},
+
+{
+name:"ماهر يونس",
+letter:"م",
+job:"محب الرياضة ⚽",
+quote:"— الحماس سر النجاح —",
+tag:"رياضة وطموح ✦",
+desc:"ماهر يحب الرياضة وكرة القدم ويتميز بالنشاط والطاقة الإيجابية.",
+skills:["كرة القدم","الرياضة","الحماس","العمل الجماعي"],
+accent:"#ffd65f",
+accent2:"#ffae00",
+bg:"#141003",
+panel:"#1d1604"
+},
+
+{
+name:"يونس بو عبيد",
+letter:"ي",
+job:"مصور ومبدع 📸",
+quote:"— أرى الجمال في كل مكان —",
+tag:"تصوير وإبداع ✦",
+desc:"يونس يحب التصوير والأفكار الجديدة والتصميم والإبداع.",
+skills:["التصوير","التصميم","الإبداع","الأفكار"],
+accent:"#74ffff",
+accent2:"#00c4c4",
+bg:"#051213",
+panel:"#07191b"
+},
+
+{
+name:"فاطمة الزهراء الناجي",
+letter:"ف",
+job:"طالبة مجتهدة 📚",
+quote:"— أحب التعلم والنجاح —",
+tag:"تعلم وتطوير ✦",
+desc:"فاطمة الزهراء تحب الدراسة واكتشاف معلومات جديدة وتتميز بأخلاق جميلة.",
+skills:["الدراسة","التعلم","القراءة","التطوير"],
+accent:"#ffb36e",
+accent2:"#ff7b00",
+bg:"#140b03",
+panel:"#1b1004"
+},
+
+{
+name:"كريمة العدناني",
+letter:"ك",
+job:"محبة التصميم ✨",
+quote:"— الألوان تجعل كل شيء أجمل —",
+tag:"تصميم وإبداع ✦",
+desc:"كريمة تحب التصميم والفن والأعمال الإبداعية والألوان الجميلة.",
+skills:["التصميم","الفن","الألوان","الإبداع"],
+accent:"#a9cbff",
+accent2:"#4d8dff",
+bg:"#07101a",
+panel:"#091726"
+},
+
+{
+name:"خلوقي ادم",
+letter:"خ",
+job:"مبدع أفكار 💡",
+quote:"— أحب تجربة أشياء جديدة —",
+tag:"إبداع وتطوير ✦",
+desc:"آدم يحب المشاريع الجديدة وتطوير أفكاره ومساعدة أصدقائه.",
+skills:["الأفكار","الإبداع","المشاريع","التطوير"],
+accent:"#ff936b",
+accent2:"#ff5a00",
+bg:"#140803",
+panel:"#1d0c04"
+},
+
+{
+name:"محمد تيعزا",
+letter:"م",
+job:"طالب طموح 🚀",
+quote:"— النجاح يبدأ بالمحاولة —",
+tag:"نجاح وطموح ✦",
+desc:"محمد يحب التعلم والعمل الجماعي ويحاول تطوير نفسه دائماً.",
+skills:["النجاح","التعلم","التطوير","العمل الجماعي"],
+accent:"#8fff8f",
+accent2:"#28c428",
+bg:"#071307",
+panel:"#0b1b0b"
+},
+
+{
+name:"سارة بو مهدي",
+letter:"س",
+job:"محبة التصميم 🎀",
+quote:"— أحب الجمال والإبداع —",
+tag:"فن وتصميم ✦",
+desc:"سارة تحب الرسم والتصميم والألوان الهادئة والأعمال الفنية.",
+skills:["الرسم","التصميم","الإبداع","الألوان"],
+accent:"#ff9bef",
+accent2:"#ff49d0",
+bg:"#140710",
+panel:"#1d0a18"
+},
+
+{
+name:"خليل العلوي",
+letter:"خ",
+job:"محب الألعاب 🎮",
+quote:"— التكنولوجيا ممتعة —",
+tag:"تقنية وألعاب ✦",
+desc:"خليل يحب الألعاب الإلكترونية والتكنولوجيا واكتشاف أشياء جديدة.",
+skills:["الألعاب","التكنولوجيا","الحاسوب","المرح"],
+accent:"#90bcff",
+accent2:"#3f77ff",
+bg:"#08101b",
+panel:"#0a1726"
+},
+
+{
+name:"أروى دور",
+letter:"أ",
+job:"طالبة متميزة 🌟",
+quote:"— أحب النجاح والتطوير —",
+tag:"تعلم وإبداع ✦",
+desc:"أروى تحب الدراسة والرسم والعمل الجماعي وتسعى دائماً للتطور.",
+skills:["الدراسة","الرسم","الإبداع","التطوير"],
+accent:"#ff82ad",
+accent2:"#ff3f7b",
+bg:"#140811",
+panel:"#1d0a16"
+},
+
+{
+name:"نزار جبارة",
+letter:"ن",
+job:"محب التكنولوجيا 🧠",
+quote:"— أتعلم شيئاً جديداً كل يوم —",
+tag:"تقنية وتطوير ✦",
+desc:"نزار يحب التكنولوجيا والحاسوب وتعلم أشياء جديدة.",
+skills:["الحاسوب","التكنولوجيا","التعلم","الإبداع"],
+accent:"#75ffd4",
+accent2:"#00c98f",
+bg:"#05120d",
+panel:"#071b12"
+},
+
+{
+name:"أصيل فولان",
+letter:"أ",
+job:"طالب هادئ 🌙",
+quote:"— التفكير بداية الإبداع —",
+tag:"إبداع وتفكير ✦",
+desc:"أصيل يحب التفكير والعمل على المشاريع بطريقة هادئة ومميزة.",
+skills:["التفكير","الإبداع","المشاريع","التطوير"],
+accent:"#c9c9ff",
+accent2:"#8888ff",
+bg:"#0c0c18",
+panel:"#111122"
+},
+
+{
+name:"عبد الرحمان بو شعيب",
+letter:"ع",
+job:"طالب طموح 🚀",
+quote:"— أحب التعلم والتطور —",
+tag:"نجاح وطموح ✦",
+desc:"عبد الرحمان يحب تطوير نفسه وتعلم مهارات جديدة كل يوم.",
+skills:["الطموح","التطوير","التعلم","الإبداع"],
+accent:"#ff9090",
+accent2:"#ff4a4a",
+bg:"#140707",
+panel:"#1d0909"
+},
+
+{
+name:"عبد الحميد بودكيك",
+letter:"ع",
+job:"محب التقنية 💻",
+quote:"— أطور مهاراتي باستمرار —",
+tag:"تقنية وتعلم ✦",
+desc:"عبد الحميد يحب التكنولوجيا والتعلم والعمل على تطوير مهاراته.",
+skills:["التكنولوجيا","الحاسوب","التعلم","الإبداع"],
+accent:"#8ee7ff",
+accent2:"#00afff",
+bg:"#07111a",
+panel:"#081925"
+},
+
+{
+name:"زكرياء حمداوي",
+letter:"ز",
+job:"طالب مبدع 🌟",
+quote:"— أحب الإبداع والعمل الجماعي —",
+tag:"إبداع وتطوير ✦",
+desc:"زكرياء يحب العمل الجماعي وتطوير أفكاره والتعلم المستمر.",
+skills:["الإبداع","الأفكار","التطوير","العمل الجماعي"],
+accent:"#ffe187",
+accent2:"#ffb300",
+bg:"#151102",
+panel:"#1f1703"
+},
+
+{
+name:"زكرياء بن عدو",
+letter:"ز",
+job:"محب التكنولوجيا ⚡",
+quote:"— التقنية تصنع المستقبل —",
+tag:"تقنية وابتكار ✦",
+desc:"زكرياء يحب التكنولوجيا والحاسوب واكتشاف عالم البرمجة.",
+skills:["التكنولوجيا","الحاسوب","الإبداع","التطوير"],
+accent:"#a48dff",
+accent2:"#6647ff",
+bg:"#0d0918",
+panel:"#120d23"
+}
+
+];
+
+const app = document.getElementById("app");
+const left = document.getElementById("left");
+
+const nameEl = document.getElementById("name");
+const jobEl = document.getElementById("job");
+const quoteEl = document.getElementById("quote");
+const descEl = document.getElementById("desc");
+const tagEl = document.getElementById("tag");
+const letterEl = document.getElementById("letter");
+const skillsEl = document.getElementById("skills");
+const tabsEl = document.getElementById("tabs");
+
+let current = 0;
+
+function renderPerson(person){
+
+document.documentElement.style.setProperty("--accent",person.accent);
+document.documentElement.style.setProperty("--accent2",person.accent2);
+
+app.style.background = person.bg;
+left.style.background = person.panel;
+
+nameEl.textContent = person.name;
+jobEl.textContent = person.job;
+quoteEl.textContent = person.quote;
+descEl.textContent = person.desc;
+tagEl.textContent = person.tag;
+letterEl.textContent = person.letter;
+
+skillsEl.innerHTML = "";
+
+person.skills.forEach(skill=>{
+
+const div = document.createElement("div");
+
+div.className = "skill";
+
+div.textContent = skill;
+
+skillsEl.appendChild(div);
+
+});
+
+document.querySelectorAll(".tab").forEach((tab,i)=>{
+
+tab.classList.toggle("active",i===current);
+
+});
+
+}
+
+people.forEach((person,index)=>{
+
+const btn = document.createElement("button");
+
+btn.className = "tab";
+
+if(index===0){
+btn.classList.add("active");
+}
+
+btn.textContent = person.name;
+
+btn.onclick = ()=>{
+
+current = index;
+
+renderPerson(person);
+
+};
+
+tabsEl.appendChild(btn);
+
+});
+
+renderPerson(people[0]);
+
+</script>
+
 </body>
 </html>
